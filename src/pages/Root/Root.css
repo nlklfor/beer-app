@@ -15,3 +15,12 @@
     margin-top: 50px;
 }
 
+
+.current {
+    font-weight: bold;
+}
+
+.isSelected {
+    border: 2px solid aqua;
+    background-color: darkgrey;
+}
