@@ -44,7 +44,7 @@ function Root(props) {
             <div className="app-content">
                 {props.beers.map((obj) => {
                     return (
-                        <Card selected={props.isSelected} onSelect={props.onSelectBtn} key={obj.id} name={obj.name} image={obj.image_url} tagline={obj.tagline} description={obj.description}/>
+                        <Card selected={props.isSelected} onSelect={props.onChangeSelect} key={obj.id} name={obj.name} image={obj.image_url} tagline={obj.tagline} description={obj.description}/>
                     )
                 })}
             </div>

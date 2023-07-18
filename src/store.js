@@ -24,9 +24,9 @@ export const useBeerStore = create(set=>({
             ]
         }))
     },
-    deleteBeer: (id) => {
+    deleteBeer: (name) => {
         set((state) => ({
-            beers: state.selectedBeer.filter((beer) => beer.id !== id)
+            selectedBeer: state.selectedBeer.filter((beer) => beer.name !== name)
         }))
     },
 
@@ -34,7 +34,7 @@ export const useBeerStore = create(set=>({
     getBeers: async ()=> {
         set({isLoading: true})
         try {
-            const res = await axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=15`)
+            const res = await axios.get(`https://api.punkapi.com/v2/beers?page=${useBeerStore.getState().currentPage}&per_page=${useBeerStore.getState().totalBeers}`)
             set({ beers: res.data })
         } catch (error) {
             set({error: error.message})

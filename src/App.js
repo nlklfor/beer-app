@@ -13,8 +13,9 @@ function App() {
     const isSelected = useBeerStore(state => state.isSelected)
     const currentPage = useBeerStore(state => state.currentPage)
 
-    const onSelectBtn = () => {
-        console.log(!isSelected)
+    const onChangeSelect = () => {
+        useBeerStore.getState(!isSelected);
+        console.log(isSelected)
     }
 
 
@@ -24,7 +25,7 @@ function App() {
     const router = createBrowserRouter(
         createRoutesFromElements(
             <>
-                <Route path='/' element={<Root pageSize={pageSize} totalBeers={totalBeers} currentPage={currentPage} onSelectBtn={onSelectBtn} beers={beers} getBeers={getBeers}/>}/>
+                <Route path='/' element={<Root pageSize={pageSize} totalBeers={totalBeers} currentPage={currentPage} onChangeSelect={onChangeSelect} beers={beers} getBeers={getBeers}/>}/>
                 <Route path='/beer-page' element={<BeerPage beers={beers}/>}/>
             </>
         )
