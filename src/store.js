@@ -5,29 +5,37 @@ export const useBeerStore = create(set=>({
     beers: [],
     isLoading: false,
     error: null,
-    isSelected: false,
     selectedBeers: [],
-    currentPage: 2 ,
+    currentPage: 1 ,
     totalBeers: 15,
     pageSize: 4,
-    isChanged: () => {
-        set((state) => {return state.isSelected} )
-    },
+    currentCard: {},
     setCurrentPage: () => {
         set((state) => { return state.currentPage})
     },
-    addBeer: (beer) => {
+    setCurrentCard: (obj) => {
         set((state) => ({
-            selectedBeers: [
-                {name: beer.name , id: beer.key, description: beer.description},
-                ...state.selectedBeers,
-            ]
+            currentCard: {...obj},
         }))
     },
-    deleteBeer: (name) => {
-        set((state) => ({
-            selectedBeer: state.selectedBeer.filter((beer) => beer.name !== name)
-        }))
+    addBeer: (id) => {
+        if (useBeerStore.getState().selectedBeers.includes(id)) {
+            set((state) => ({
+                selectedBeers: state.selectedBeers.filter((item) => item !== id )
+            }))
+        } else {
+            set((state) => ({
+                selectedBeers: [
+                    ...state.selectedBeers, id
+                ]
+            }))
+        }
+
+    },
+    deleteBeer: (id) => {
+            set((state) => ({
+                beers: state.selectedBeers.filter((item) => item !== id),
+            }))
     },
 
 

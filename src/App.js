@@ -5,13 +5,14 @@ import {useBeerStore} from "./store";
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 import BeerPage from "./pages/BeerPage/BeerPage";
 
-function App() {
+function App(props) {
     const beers = useBeerStore(state => state.beers)
     const getBeers = useBeerStore(state => state.getBeers)
     const pageSize = useBeerStore(state => state.pageSize)
     const totalBeers = useBeerStore(state => state.totalBeers)
     const isSelected = useBeerStore(state => state.isSelected)
     const currentPage = useBeerStore(state => state.currentPage)
+
 
     const onChangeSelect = () => {
         useBeerStore.getState(!isSelected);
@@ -26,7 +27,7 @@ function App() {
         createRoutesFromElements(
             <>
                 <Route path='/' element={<Root pageSize={pageSize} totalBeers={totalBeers} currentPage={currentPage} onChangeSelect={onChangeSelect} beers={beers} getBeers={getBeers}/>}/>
-                <Route path='/beer-page' element={<BeerPage beers={beers}/>}/>
+                <Route path='/beer-page' element={<BeerPage/>}/>
             </>
         )
     )

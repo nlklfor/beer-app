@@ -10,12 +10,13 @@ function Root(props) {
     const selectedBeers = useBeerStore(state => state.selectedBeers)
     const deleteBeer = useBeerStore(state => state.deleteBeer)
 
-    let pagesCount = Math.ceil (props.totalBeers / props.pageSize);
-
-    let pages = [];
-    for (let i=1; i<=pagesCount; i++) {
-        pages.push(i);
-    }
+    //
+    // let pagesCount = Math.ceil (props.totalBeers / props.pageSize);
+    //
+    // let pages = [];
+    // for (let i=1; i<=pagesCount; i++) {
+    //     pages.push(i);
+    // }
 
 
     return (
@@ -26,7 +27,7 @@ function Root(props) {
             </header>
             {selectedBeers.length > 0 ?
                 <div className='delete'>
-                    <button onClick={(obj) => deleteBeer(obj.id)} className='dlt-btn'>Delete X</button>
+                    <button onClick={() => deleteBeer()} className='dlt-btn'>Delete X</button>
                     <h3 className='selected-beers'>Selected beers: {selectedBeers.length}</h3>
                 </div>
                 :
@@ -44,7 +45,7 @@ function Root(props) {
             <div className="app-content">
                 {props.beers.map((obj) => {
                     return (
-                        <Card selected={props.isSelected} onSelect={props.onChangeSelect} key={obj.id} name={obj.name} image={obj.image_url} tagline={obj.tagline} description={obj.description}/>
+                        <Card id={obj.id} key={obj.id} name={obj.name} image={obj.image_url} tagline={obj.tagline} description={obj.description}/>
                     )
                 })}
             </div>
