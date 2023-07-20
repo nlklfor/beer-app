@@ -18,7 +18,6 @@ function Root(props) {
     //     pages.push(i);
     // }
 
-
     return (
         <div className="app">
             <header className="app-header">
@@ -40,7 +39,6 @@ function Root(props) {
             {/*                </span>*/}
             {/*            )*/}
             {/*    })}*/}
-
             {/*</div>*/}
             <div className="app-content">
                 {props.beers.map((obj) => {
