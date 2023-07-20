@@ -1,0 +1,14 @@
+.beer-page{
+    display: flex;
+    margin:  10% auto;
+    max-width: 600px;
+
+}
+
+.beer-review{
+    margin-right: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+

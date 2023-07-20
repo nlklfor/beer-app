@@ -1,7 +1,16 @@
 
 .app-header {
     display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
+
+.header-logo{
+    margin-left: 10px;
+}
+
+
 
 .app-content{
     text-align: center;
@@ -23,4 +32,28 @@
 .isSelected {
     border: 2px solid aqua;
     background-color: darkgrey;
+}
+.delete{
+    display: flex;
+    justify-content: end;
+}
+.selected-beers{
+    margin-right: 20px;
+}
+
+
+.dlt-btn{
+    padding: 10px 15px;
+    border-radius: 6px;
+    border-color: rgba(147, 58, 58, 0.64);
+    background-color: rgba(217, 39, 39, 0.96);
+    color: black;
+    font-weight: bold;
+    transition: .3s all;
+    font-size: 14px;
+    margin-right: 100px;
+}
+
+.dlt-btn:hover, .dlt-btn:focus, .dlt-btn:active{
+    background-color: rgba(217, 39, 39, 0.53);
 }

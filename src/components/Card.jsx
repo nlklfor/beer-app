@@ -4,10 +4,6 @@ import {useBeerStore} from "../store";
 function Card (props) {
     const addBeer = useBeerStore(state => state.addBeer)
     const setCurrentCard = useBeerStore(state => state.setCurrentCard)
-    // document.querySelector('.beer-list').oncontextmenu= () => {
-    //     console.log(!props.selected)
-    //     return false;
-    // }
     const addBtn = (event) => {
         addBeer(props.id)
         event.preventDefault()
